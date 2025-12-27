@@ -1,0 +1,73 @@
+# Interactive Calculator Program
+
+def add(a, b):
+    return a + b
+
+def sub(a, b):
+    return a - b
+
+def mul(a, b):
+    return a * b
+
+def div(a, b):
+    if b == 0:
+        return "❌ Cannot divide by zero"
+    return a / b
+
+def avg(a, b):
+    return (a + b) / 2
+
+
+def get_number(msg):
+    while True:
+        try:
+            return float(input(msg))
+        except ValueError:
+            print("⚠️ Please enter a valid number!")
+
+
+print("\n👋 Welcome to the Smart Calculator")
+print("🔢 Simple • Fast • Friendly")
+
+while True:
+    print("\n" + "=" * 40)
+    print("Choose an operation:")
+    print("➕ 1. Addition")
+    print("➖ 2. Subtraction")
+    print("✖️ 3. Multiplication")
+    print("➗ 4. Division")
+    print("📊 5. Average")
+    print("🚪 6. Exit")
+    print("=" * 40)
+
+    choice = input("👉 Enter your choice (1–6): ")
+
+    if choice == "6":
+        print("\n👋 Thanks for using the calculator. Goodbye!")
+        break
+
+    if choice not in ["1", "2", "3", "4", "5"]:
+        print("❌ Invalid choice! Please select 1 to 6.")
+        continue
+
+    num1 = get_number("Enter first number: ")
+    num2 = get_number("Enter second number: ")
+
+    print("\n🧾 Result:")
+
+    if choice == "1":
+        print(f"➕ {num1} + {num2} = {add(num1, num2)}")
+
+    elif choice == "2":
+        print(f"➖ {num1} - {num2} = {sub(num1, num2)}")
+
+    elif choice == "3":
+        print(f"✖️ {num1} × {num2} = {mul(num1, num2)}")
+
+    elif choice == "4":
+        print(f"➗ {num1} ÷ {num2} = {div(num1, num2)}")
+
+    elif choice == "5":
+        print(f"📊 Average of {num1} and {num2} = {avg(num1, num2)}")
+
+    input("\n🔁 Press Enter to continue...")
